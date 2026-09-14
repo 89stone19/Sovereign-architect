@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AppProduct } from '../types';
 import { TEACHER_SQUAD, MUSIC_MODULES } from '../data/products';
-import { X, CheckCircle2, ShieldCheck, Sparkles, CreditCard, ArrowRight, Play, Calculator, Music2, Cpu } from 'lucide-react';
+import { X, CheckCircle2, ShieldCheck, Sparkles, CreditCard, ArrowRight, Play, Calculator, Music2, Cpu, Clock } from 'lucide-react';
 import { MERCHANT_INFO } from '../data/policies';
 
 interface AppDetailModalProps {
@@ -334,12 +334,20 @@ export const AppDetailModal: React.FC<AppDetailModalProps> = ({ app, onClose }) 
               </div>
 
               {/* Merchant Delivery & Refund Guarantee Pill */}
-              <div className="p-3 rounded-xl bg-[#141829] border border-[#232b42] flex items-center justify-between text-xs text-slate-300">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>7-Day Satisfaction Guarantee &bull; Instant Email Key Delivery</span>
+              <div className="space-y-2">
+                {app.deliveryTimeline && (
+                  <div className="p-3 rounded-xl bg-[#0e121d] border border-amber-500/25 flex items-center gap-2.5 text-xs text-amber-300">
+                    <Clock className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                    <span><strong>Fulfillment SLA:</strong> {app.deliveryTimeline}</span>
+                  </div>
+                )}
+                <div className="p-3 rounded-xl bg-[#141829] border border-[#232b42] flex items-center justify-between text-xs text-slate-300">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                    <span>7-Day Satisfaction Guarantee &bull; 24h Merchant Support SLA</span>
+                  </div>
+                  <span className="text-slate-400 font-mono text-[11px]">Paystack PCI-DSS</span>
                 </div>
-                <span className="text-slate-400 font-mono">Processed via Paystack</span>
               </div>
             </>
           )}

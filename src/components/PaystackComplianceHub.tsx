@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, CheckCircle2, Copy, Check, ExternalLink, HelpCircle, FileCheck2, Mail, CreditCard, Clock } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Copy, Check, ExternalLink, HelpCircle, FileCheck2, Mail, CreditCard, Clock, MapPin, Phone, Globe } from 'lucide-react';
 import { MERCHANT_INFO, COMPLIANCE_CHECKLIST } from '../data/policies';
 
 interface PaystackComplianceHubProps {
@@ -8,10 +8,10 @@ interface PaystackComplianceHubProps {
 
 export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ onOpenExporter }) => {
   const [copied, setCopied] = useState(false);
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://your-public-url.app';
+  const targetUrl = MERCHANT_INFO.publicLiveUrl;
 
   const handleCopyUrl = () => {
-    navigator.clipboard.writeText(currentUrl);
+    navigator.clipboard.writeText(targetUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -27,10 +27,10 @@ export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ on
             <span>Paystack Merchant Compliance Suite</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Valid Public URL &amp; Merchant Verification Hub
+            Verified Public URL &amp; Merchant Verification Hub
           </h2>
           <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Everything required to pass Paystack&apos;s commercial compliance audit: authentic business identity, transparent pricing, legal policies, and customer support channels.
+            Everything required to pass Paystack&apos;s commercial compliance review: authentic business identity in Mamelodi, Pretoria, transparent app pricing, published legal policies, and direct contact channels.
           </p>
         </div>
 
@@ -39,10 +39,10 @@ export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ on
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-5 border-b border-[#22293e]">
             <div>
               <div className="text-xs font-semibold text-violet-400 uppercase tracking-wider">
-                Step 1: Copy Your Valid Public Link
+                Step 1: Submit Your Valid Public URL to Paystack
               </div>
               <h3 className="text-lg font-bold text-white mt-1">
-                Your Public URL for Paystack Review
+                Official Live URL for Merchant Approval
               </h3>
             </div>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
@@ -52,8 +52,17 @@ export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ on
           </div>
 
           <div className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <div className="flex-1 bg-[#090b12] border border-[#273149] rounded-xl px-4 py-3 font-mono text-xs sm:text-sm text-slate-200 truncate select-all">
-              {currentUrl}
+            <div className="flex-1 bg-[#090b12] border border-[#273149] rounded-xl px-4 py-3 font-mono text-xs sm:text-sm text-slate-200 truncate select-all flex items-center justify-between gap-2">
+              <span className="truncate">{targetUrl}</span>
+              <a
+                href={targetUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-violet-400 hover:text-white p-1"
+                title="Open Live Public Link"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
             <button
               id="copy-compliance-url-btn"
@@ -68,19 +77,19 @@ export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ on
               ) : (
                 <>
                   <Copy className="w-4 h-4" />
-                  <span>Copy Link for Paystack</span>
+                  <span>Copy Public URL</span>
                 </>
               )}
             </button>
           </div>
 
           <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
-            <span>Paste this directly into: <strong>Paystack Dashboard &rarr; Compliance &rarr; Website Link</strong></span>
+            <span>Paste directly into: <strong>Paystack Dashboard &rarr; Settings &rarr; Compliance &rarr; Website Link</strong></span>
             <button
               onClick={onOpenExporter}
               className="text-violet-400 hover:text-violet-300 underline font-medium cursor-pointer"
             >
-              Want your own custom Vercel domain instead? Open Exporter
+              Download Standalone HTML Export
             </button>
           </div>
         </div>
@@ -97,11 +106,11 @@ export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ on
                   <span>Paystack Verification Criteria</span>
                 </h3>
                 <p className="text-xs text-slate-400 mt-1">
-                  Evaluated against Paystack&apos;s Merchant Activation Compliance Rules.
+                  Evaluated against Paystack Merchant Compliance requirements.
                 </p>
               </div>
               <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
-                6 / 6 Passed
+                {COMPLIANCE_CHECKLIST.length} / {COMPLIANCE_CHECKLIST.length} Verified
               </span>
             </div>
 
@@ -134,44 +143,60 @@ export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ on
             {/* Merchant Details Box */}
             <div className="bg-[#111420] border border-[#1f2638] rounded-2xl p-6 sm:p-7 flex-1">
               <h3 className="text-lg font-bold text-white mb-1">
-                Official Merchant Identity
+                Official Merchant Registry
               </h3>
               <p className="text-xs text-slate-400 mb-6">
-                Official registration details for customer and bank audits.
+                Verified registration details for Paystack, banking partners, and client auditing.
               </p>
 
-              <div className="space-y-4 text-xs">
+              <div className="space-y-3.5 text-xs">
                 <div className="p-3 rounded-lg bg-[#0d0f17] border border-[#1e2436]">
                   <div className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">
-                    Registered Business Name
+                    Registered Business Entity
                   </div>
                   <div className="text-sm font-bold text-white mt-0.5">
                     {MERCHANT_INFO.businessName}
                   </div>
                 </div>
 
+                <div className="p-3 rounded-lg bg-[#0d0f17] border border-[#1e2436] flex items-start justify-between gap-2">
+                  <div>
+                    <div className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">
+                      Physical &amp; Operating Location
+                    </div>
+                    <div className="text-xs font-semibold text-amber-300 mt-0.5">
+                      {MERCHANT_INFO.fullAddress}
+                    </div>
+                  </div>
+                  <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                </div>
+
                 <div className="p-3 rounded-lg bg-[#0d0f17] border border-[#1e2436]">
                   <div className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">
-                    Proprietor / Lead Engineer
+                    Founder &amp; Lead Developer
                   </div>
                   <div className="text-sm font-bold text-white mt-0.5">
                     {MERCHANT_INFO.leadDeveloper}
                   </div>
+                  <div className="text-[11px] text-slate-400 mt-0.5 flex items-center gap-3">
+                    <span className="text-violet-400">{MERCHANT_INFO.contactEmail}</span>
+                    <span>•</span>
+                    <span className="text-slate-300">{MERCHANT_INFO.founderPhone}</span>
+                  </div>
                 </div>
 
-                <div className="p-3 rounded-lg bg-[#0d0f17] border border-[#1e2436] flex items-center justify-between">
-                  <div>
-                    <div className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">
-                      Registered Support Email
-                    </div>
-                    <a
-                      href={`mailto:${MERCHANT_INFO.contactEmail}`}
-                      className="text-sm font-bold text-violet-400 hover:underline mt-0.5 block"
-                    >
-                      {MERCHANT_INFO.contactEmail}
-                    </a>
+                <div className="p-3 rounded-lg bg-[#0d0f17] border border-[#1e2436]">
+                  <div className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">
+                    Chief Executive &amp; Academy Director
                   </div>
-                  <Mail className="w-4 h-4 text-violet-400" />
+                  <div className="text-sm font-bold text-white mt-0.5">
+                    {MERCHANT_INFO.directorName}
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-0.5 flex items-center gap-3">
+                    <span className="text-purple-400">{MERCHANT_INFO.directorEmail}</span>
+                    <span>•</span>
+                    <span className="text-slate-300">{MERCHANT_INFO.directorPhone}</span>
+                  </div>
                 </div>
 
                 <div className="p-3 rounded-lg bg-[#0d0f17] border border-[#1e2436] flex items-center justify-between">
@@ -180,7 +205,7 @@ export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ on
                       Payment Gateway Integration
                     </div>
                     <div className="text-xs font-semibold text-emerald-400 mt-0.5">
-                      Paystack Secure Checkout (PCI-DSS)
+                      Paystack Payments Limited (PCI-DSS Level 1)
                     </div>
                   </div>
                   <CreditCard className="w-4 h-4 text-emerald-400" />
@@ -189,10 +214,10 @@ export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ on
                 <div className="p-3 rounded-lg bg-[#0d0f17] border border-[#1e2436] flex items-center justify-between">
                   <div>
                     <div className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">
-                      Customer Support Response
+                      Support Turnaround &amp; SLA
                     </div>
                     <div className="text-xs font-semibold text-slate-200 mt-0.5">
-                      Within 24 business hours guaranteed
+                      Guaranteed within 24 business hours
                     </div>
                   </div>
                   <Clock className="w-4 h-4 text-amber-400" />
@@ -207,7 +232,7 @@ export const PaystackComplianceHub: React.FC<PaystackComplianceHubProps> = ({ on
                 <span>Next Step in Paystack Dashboard</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Log into your Paystack account &rarr; Click <strong>Settings</strong> &rarr; <strong>Compliance</strong> &rarr; Enter your public URL &amp; merchant email <strong className="text-white">willisderol@gmail.com</strong>.
+                Log into your Paystack merchant portal &rarr; Go to <strong>Settings</strong> &rarr; <strong>Compliance</strong> &rarr; In the <strong>Website Link</strong> field, submit: <strong className="text-emerald-400 font-mono text-[11px]">{MERCHANT_INFO.publicLiveUrl}</strong>.
               </p>
             </div>
 

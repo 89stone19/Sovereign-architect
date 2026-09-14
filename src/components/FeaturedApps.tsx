@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AppProduct } from '../types';
 import { FEATURED_PRODUCTS, TEACHER_SQUAD, MUSIC_MODULES, VAULT_METRICS_DEMO } from '../data/products';
-import { GraduationCap, Music, TrendingUp, Sparkles, CheckCircle, ArrowUpRight, Cpu, ShieldCheck } from 'lucide-react';
+import { GraduationCap, Music, TrendingUp, Sparkles, CheckCircle, ArrowUpRight, Cpu, ShieldCheck, Clock } from 'lucide-react';
 
 interface FeaturedAppsProps {
   onSelectApp: (app: AppProduct) => void;
@@ -124,10 +124,17 @@ export const FeaturedApps: React.FC<FeaturedAppsProps> = ({ onSelectApp }) => {
 
             {/* Pricing & CTA */}
             <div className="pt-4 border-t border-[#1f2538]">
+              {/* Delivery Timeline Notice */}
+              <div className="mb-3 px-2.5 py-1.5 rounded-lg bg-[#0e121c] border border-amber-500/20 text-[11px] text-amber-300 flex items-center gap-2">
+                <Clock className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                <span><strong>Delivery:</strong> Instant automated email license dispatch (2–5 mins)</span>
+              </div>
+
               <div className="flex items-baseline justify-between mb-3">
                 <div>
                   <span className="text-2xl font-black text-white">$14</span>
                   <span className="text-xs text-slate-400 ml-1">/ month</span>
+                  <span className="text-[10px] text-slate-500 ml-1.5 font-mono">(USD/NGN/ZAR)</span>
                 </div>
                 <span className="text-[11px] text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 font-medium">
                   Family / Classroom
@@ -227,10 +234,17 @@ export const FeaturedApps: React.FC<FeaturedAppsProps> = ({ onSelectApp }) => {
 
             {/* Pricing & CTA */}
             <div className="pt-4 border-t border-[#1f2538]">
+              {/* Delivery Timeline Notice */}
+              <div className="mb-3 px-2.5 py-1.5 rounded-lg bg-[#0e121c] border border-violet-500/20 text-[11px] text-violet-300 flex items-center gap-2">
+                <Clock className="w-3.5 h-3.5 text-violet-400 flex-shrink-0" />
+                <span><strong>Delivery:</strong> Immediate calendar invitation &amp; studio prep pack (2–5 mins)</span>
+              </div>
+
               <div className="flex items-baseline justify-between mb-3">
                 <div>
                   <span className="text-2xl font-black text-white">$45</span>
                   <span className="text-xs text-slate-400 ml-1">/ studio slot</span>
+                  <span className="text-[10px] text-slate-500 ml-1.5 font-mono">(USD/NGN/ZAR)</span>
                 </div>
                 <span className="text-[11px] text-violet-300 bg-violet-500/10 px-2 py-0.5 rounded border border-violet-500/20 font-medium">
                   or $160 / 4-Week Track
@@ -314,10 +328,17 @@ export const FeaturedApps: React.FC<FeaturedAppsProps> = ({ onSelectApp }) => {
 
             {/* Pricing & CTA */}
             <div className="pt-4 border-t border-[#1f2538]">
+              {/* Delivery Timeline Notice */}
+              <div className="mb-3 px-2.5 py-1.5 rounded-lg bg-[#0e121c] border border-cyan-500/20 text-[11px] text-cyan-300 flex items-center gap-2">
+                <Clock className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                <span><strong>Delivery:</strong> Instant automated license key &amp; download link (2–5 mins)</span>
+              </div>
+
               <div className="flex items-baseline justify-between mb-3">
                 <div>
                   <span className="text-2xl font-black text-white">$49</span>
                   <span className="text-xs text-slate-400 ml-1">one-time</span>
+                  <span className="text-[10px] text-slate-500 ml-1.5 font-mono">(USD/NGN/ZAR)</span>
                 </div>
                 <span className="text-[11px] text-cyan-300 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20 font-medium">
                   Lifetime Pro Digital Key

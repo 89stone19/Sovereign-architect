@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Sparkles, ExternalLink, ArrowRight, CheckCircle2, Copy, Check } from 'lucide-react';
+import { Shield, Sparkles, ExternalLink, ArrowRight, CheckCircle2, Copy, Check, MapPin } from 'lucide-react';
 import { MERCHANT_INFO } from '../data/policies';
 
 interface HeroProps {
@@ -10,7 +10,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenExporter }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
+    navigator.clipboard.writeText(MERCHANT_INFO.publicLiveUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -23,9 +23,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenExporter }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Verification Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-950/60 border border-violet-500/30 text-violet-300 text-xs font-semibold tracking-wide mb-6">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-950/60 border border-violet-500/30 text-violet-300 text-xs font-semibold tracking-wide mb-6 flex-wrap justify-center">
           <Sparkles className="w-3.5 h-3.5 text-violet-400" />
-          <span>Official Public Gateway • Verified Software Ecosystem</span>
+          <span>Official Public Gateway • Est. 2026</span>
+          <span className="text-violet-500">•</span>
+          <span className="inline-flex items-center gap-1 text-amber-300">
+            <MapPin className="w-3 h-3 text-amber-400" />
+            <span>{MERCHANT_INFO.officialLocation}</span>
+          </span>
         </div>
 
         {/* Main headline */}
@@ -35,9 +40,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenExporter }) => {
 
         {/* Subtitle */}
         <p className="mt-6 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
-          Empowering education, musical creativity, and digital workflow systems with specialized AI tools.
-          Official commercial showcase built by <strong className="text-white font-semibold">Derol Willis</strong> for
-          transparent licensing and <strong className="text-violet-300 font-semibold">Paystack merchant compliance</strong>.
+          Empowering education, musical creativity, and digital financial sovereignty with specialized software.
+          Operating from <strong className="text-amber-300 font-semibold">{MERCHANT_INFO.officialLocation}</strong> by Founder &amp; Lead Developer <strong className="text-white font-semibold">{MERCHANT_INFO.leadDeveloper}</strong> and Academy Director <strong className="text-white font-semibold">{MERCHANT_INFO.directorName}</strong>.
+          Verified for <strong className="text-violet-300 font-semibold">Paystack merchant compliance</strong> with instant digital delivery.
         </p>
 
         {/* Action button bar */}
@@ -60,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenExporter }) => {
 
           <button
             onClick={onOpenExporter}
-            className="px-5 py-3 rounded-xl bg-[#121624] hover:bg-[#1b2133] border border-[#232a3d] text-slate-300 hover:text-white text-sm font-medium transition-all flex items-center gap-2"
+            className="px-5 py-3 rounded-xl bg-[#121624] hover:bg-[#1b2133] border border-[#232a3d] text-slate-300 hover:text-white text-sm font-medium transition-all flex items-center gap-2 cursor-pointer"
           >
             <span>Download / Export HTML</span>
           </button>
@@ -69,56 +74,67 @@ export const Hero: React.FC<HeroProps> = ({ onOpenExporter }) => {
         {/* Current URL Copy pill for Paystack Dashboard */}
         <div className="mt-8 max-w-xl mx-auto p-2.5 rounded-xl bg-[#131724]/90 border border-[#252d42] flex items-center justify-between gap-3 text-left">
           <div className="flex items-center gap-2.5 overflow-hidden pl-2">
-            <span className="flex-shrink-0 w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span className="flex-shrink-0 w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <div className="truncate">
               <div className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">
-                Your Public Paystack URL
+                Verified Live Public URL (Paystack Submission)
               </div>
-              <div className="text-xs text-slate-200 font-mono truncate">
-                {typeof window !== 'undefined' ? window.location.href : 'https://your-public-url.app'}
+              <div className="text-xs text-slate-200 font-mono truncate select-all">
+                {MERCHANT_INFO.publicLiveUrl}
               </div>
             </div>
           </div>
-          <button
-            id="hero-copy-url-btn"
-            onClick={handleCopyLink}
-            className="flex-shrink-0 px-3 py-1.5 rounded-lg bg-violet-600/20 hover:bg-violet-600/30 text-violet-300 border border-violet-500/30 text-xs font-semibold flex items-center gap-1.5 transition-all"
-          >
-            {copied ? (
-              <>
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Copied</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-3.5 h-3.5" />
-                <span>Copy</span>
-              </>
-            )}
-          </button>
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            <button
+              id="hero-copy-url-btn"
+              onClick={handleCopyLink}
+              className="px-3 py-1.5 rounded-lg bg-violet-600/20 hover:bg-violet-600/30 text-violet-300 border border-violet-500/30 text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Copied</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" />
+                  <span>Copy URL</span>
+                </>
+              )}
+            </button>
+            <a
+              href={MERCHANT_INFO.publicLiveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="p-1.5 rounded-lg bg-[#1a2034] hover:bg-[#232b45] text-slate-300 hover:text-white border border-[#2b3550] transition-colors"
+              title="Open Live Public URL"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
 
         {/* Feature stats badge row */}
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
           <div className="p-4 rounded-xl bg-[#121624] border border-[#20273b] text-left">
             <div className="text-2xl font-bold text-white">3</div>
-            <div className="text-xs text-slate-400 mt-0.5">Core Active Applications</div>
-            <div className="text-[11px] text-amber-400/90 mt-1 font-medium">Education, Music, Trading</div>
+            <div className="text-xs text-slate-400 mt-0.5">Published Core Apps</div>
+            <div className="text-[11px] text-amber-400/90 mt-1 font-medium">Calcuboss • Music • SovereignVault</div>
           </div>
           <div className="p-4 rounded-xl bg-[#121624] border border-[#20273b] text-left">
             <div className="text-2xl font-bold text-emerald-400">100%</div>
-            <div className="text-xs text-slate-400 mt-0.5">Paystack Ready</div>
-            <div className="text-[11px] text-emerald-400/90 mt-1 font-medium">Policies & Pricing Public</div>
+            <div className="text-xs text-slate-400 mt-0.5">Paystack Compliant</div>
+            <div className="text-[11px] text-emerald-400/90 mt-1 font-medium">Pricing &amp; Policies Public</div>
           </div>
           <div className="p-4 rounded-xl bg-[#121624] border border-[#20273b] text-left">
             <div className="text-2xl font-bold text-white">&lt; 24h</div>
-            <div className="text-xs text-slate-400 mt-0.5">Support Response SLA</div>
-            <div className="text-[11px] text-violet-400/90 mt-1 font-medium">Direct Developer Contact</div>
+            <div className="text-xs text-slate-400 mt-0.5">Customer Support SLA</div>
+            <div className="text-[11px] text-violet-400/90 mt-1 font-medium">willisderol@gmail.com</div>
           </div>
           <div className="p-4 rounded-xl bg-[#121624] border border-[#20273b] text-left">
-            <div className="text-2xl font-bold text-cyan-400">Instant</div>
-            <div className="text-xs text-slate-400 mt-0.5">Digital Key Dispatch</div>
-            <div className="text-[11px] text-cyan-400/90 mt-1 font-medium">Automated Email Delivery</div>
+            <div className="text-2xl font-bold text-cyan-400">2–5 Min</div>
+            <div className="text-xs text-slate-400 mt-0.5">Instant Digital Delivery</div>
+            <div className="text-[11px] text-cyan-400/90 mt-1 font-medium">Automated Key Dispatch</div>
           </div>
         </div>
       </div>

@@ -17,6 +17,7 @@ export interface AppProduct {
   targetAudience: string;
   accentColor: string;
   status: 'Live & Active' | 'Registration Open' | 'Production Ready';
+  deliveryTimeline: string;
   demoDetails: {
     type: 'avatars' | 'music' | 'trading';
     interactiveNote: string;

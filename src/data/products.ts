@@ -28,6 +28,7 @@ export const FEATURED_PRODUCTS: AppProduct[] = [
     targetAudience: 'Ages 5–12, Elementary Classrooms, Homeschool Educators & Tutors',
     accentColor: 'from-amber-500/20 to-orange-500/20 text-amber-400 border-amber-500/30',
     status: 'Live & Active',
+    deliveryTimeline: 'Instant automated email dispatch within 2–5 minutes of Paystack payment confirmation',
     demoDetails: {
       type: 'avatars',
       interactiveNote: 'Select an AI instructor to inspect their curriculum specialty and lesson sample.'
@@ -60,6 +61,7 @@ export const FEATURED_PRODUCTS: AppProduct[] = [
     targetAudience: 'Vocalists, Music Producers, Sound Designers & Recording Artists',
     accentColor: 'from-purple-500/20 to-indigo-500/20 text-purple-400 border-purple-500/30',
     status: 'Registration Open',
+    deliveryTimeline: 'Immediate automated calendar invitation, studio slot lock & session prep kit dispatched within 2–5 minutes',
     demoDetails: {
       type: 'music',
       interactiveNote: 'Explore studio curriculum tracks, session rates, and equipment routing specifications.'
@@ -92,6 +94,7 @@ export const FEATURED_PRODUCTS: AppProduct[] = [
     targetAudience: 'Active Traders, Crypto Allocators, Financial Minimalists & Data Sovereigns',
     accentColor: 'from-cyan-500/20 to-emerald-500/20 text-cyan-400 border-cyan-500/30',
     status: 'Production Ready',
+    deliveryTimeline: 'Instant automated email dispatch of license key & executable download link within 2–5 minutes of Paystack checkout confirmation',
     demoDetails: {
       type: 'trading',
       interactiveNote: 'Test real-time calculation matrix, asset allocation charts, and cyberpunk HUD telemetry.'

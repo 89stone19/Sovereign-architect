@@ -4,7 +4,7 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shalot's Music Academy & Software Studio - Official Public Gateway</title>
-    <meta name="description" content="Official showcase and Paystack compliance merchant portal for Shalot's Music Academy & Software Studio, featuring School Kids Teacher Avatar, Shalot's Music Academy 2026, and SovereignVault V3.0 Pro.">
+    <meta name="description" content="Official showcase and Paystack compliance merchant portal for Shalot's Music Academy & Software Studio based in Mamelodi, Pretoria, South Africa. Featuring Calcuboss OS6 Kids, Shalot's Music Academy 2026, and SovereignVault V3.0 Pro.">
     <style>
         :root {
             --bg-color: #0c0e14;
@@ -32,12 +32,16 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
         .announcement-bar {
             background: #181c2b;
             border-bottom: 1px solid #283049;
-            padding: 0.6rem 1rem;
+            padding: 0.65rem 1rem;
             font-size: 0.85rem;
             text-align: center;
             color: #c4b5fd;
         }
         .announcement-bar strong { color: #fff; }
+        .location-badge {
+            color: #fbbf24;
+            font-weight: 600;
+        }
         header {
             text-align: center;
             padding: 4.5rem 1.5rem 3rem;
@@ -68,15 +72,30 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
         header p {
             color: var(--text-muted);
             font-size: 1.15rem;
-            max-width: 680px;
+            max-width: 720px;
             margin: 0 auto 1.5rem;
+        }
+        .meta-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+        .meta-tag {
+            background: #161b2a;
+            border: 1px solid #28334e;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
         }
         .cta-group {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 1.5rem;
+            margin-top: 1.75rem;
         }
         .btn {
             display: inline-flex;
@@ -103,8 +122,13 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
             border: 1px solid #334155;
         }
         .btn-secondary:hover { background: #283149; border-color: #475569; }
+        .btn-facebook {
+            background: #1877f2;
+            color: #fff;
+        }
+        .btn-facebook:hover { background: #0c63d4; }
         .container {
-            max-width: 1100px;
+            max-width: 1120px;
             margin: 0 auto;
             padding: 3rem 1.5rem;
         }
@@ -192,6 +216,15 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
             color: #8b5cf6;
             font-weight: bold;
         }
+        .delivery-notice {
+            background: #0d111b;
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            color: #fcd34d;
+            font-size: 0.78rem;
+            border-radius: 6px;
+            padding: 0.4rem 0.65rem;
+            margin-bottom: 0.75rem;
+        }
         .pricing-box {
             background: #0f121d;
             border: 1px solid #232a3d;
@@ -223,6 +256,21 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
             border-radius: 14px;
             padding: 2rem;
             margin-top: 3.5rem;
+        }
+        .url-box {
+            background: #090b12;
+            border: 1px solid #283552;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #34d399;
+            word-break: break-all;
         }
         .merchant-grid {
             display: grid;
@@ -302,16 +350,25 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
 <body>
 
     <div class="announcement-bar">
-        🔒 <strong>Paystack Compliance Verified</strong> — Official Merchant Portal for Shalot's Music Academy & Software Studio
+        🔒 <strong>Paystack Compliance Verified</strong> — Official Merchant Portal for Shalot's Music Academy & Software Studio • <span class="location-badge">📍 Mamelodi, Pretoria, South Africa</span>
     </div>
 
     <header>
         <div class="brand-badge">Official Ecosystem Gateway • Est. 2026</div>
         <h1>Shalot's Music Academy & Software Studio</h1>
-        <p>Empowering education, musical creativity, and digital workflow systems with next-gen AI tools and specialized software suites.</p>
+        <p>Empowering children's education, musical acoustics, and localized financial computing with next-generation digital suites.</p>
+        
+        <div class="meta-tags">
+            <span class="meta-tag">📍 Mamelodi, Pretoria, South Africa</span>
+            <span class="meta-tag">👨‍💻 Founder: Derol Willis (0796060896)</span>
+            <span class="meta-tag">🎙️ Director: Shalot Willis (0637275024)</span>
+            <span class="meta-tag">⚡ 24h Response SLA</span>
+        </div>
+
         <div class="cta-group">
             <a href="#apps" class="btn btn-primary">Browse Applications</a>
             <a href="#compliance" class="btn btn-secondary">Paystack Merchant Details</a>
+            <a href="https://www.facebook.com/profile.php?id=61591481986905" target="_blank" rel="noreferrer" class="btn btn-facebook">Facebook Page</a>
             <a href="mailto:willisderol@gmail.com" class="btn btn-secondary">Contact Support</a>
         </div>
     </header>
@@ -328,8 +385,8 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
             <div class="card">
                 <div>
                     <span class="badge badge-edu">Education & AI</span>
-                    <h3>School Kids Teacher Avatar</h3>
-                    <div class="app-sub">Calcuboss OS6 Kids & AI Squad</div>
+                    <h3>Calcuboss OS6 Kids</h3>
+                    <div class="app-sub">School Kids Teacher Avatar & AI Squad</div>
                     <p>Featuring the full AI Teacher Squad including Calcuboss, Treebo, and Ms Nova. Delivers interactive math speed puzzles, science botany guides, and phonics storytelling for young learners.</p>
                     <ul class="feature-bullets">
                         <li>Calcuboss: Mental arithmetic speed drills</li>
@@ -338,10 +395,13 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
                         <li>Child-safe, privacy-guaranteed learning loop</li>
                     </ul>
                 </div>
-                <div class="pricing-box">
-                    <div>
-                        <div class="pricing-price">$14 <span class="pricing-period">/ month</span></div>
-                        <div class="pricing-model">Family & Classroom Access</div>
+                <div>
+                    <div class="delivery-notice">⏱️ Delivery: Automated email license dispatch within 2–5 minutes</div>
+                    <div class="pricing-box">
+                        <div>
+                            <div class="pricing-price">$14 <span class="pricing-period">/ month</span></div>
+                            <div class="pricing-model">Family & Classroom (USD/NGN/ZAR)</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -352,18 +412,21 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
                     <span class="badge badge-music">Music & Production</span>
                     <h3>Shalot's Music Academy 2026</h3>
                     <div class="app-sub">Studio Scheduling & Vocal Suite</div>
-                    <p>Comprehensive music academy registration, studio session booking, and vocal tracking system integrated with professional hardware routing suites and mentor feedback.</p>
+                    <p>Comprehensive music academy registration, studio session booking in Mamelodi, Pretoria, and vocal tracking system integrated with professional hardware routing suites and mentor feedback.</p>
                     <ul class="feature-bullets">
                         <li>Instant live studio booking scheduler</li>
                         <li>Vocal pitch analysis & frequency coaching</li>
                         <li>Analog patch bay & DAW interface routing</li>
-                        <li>Mentorship tracks from Derol Willis</li>
+                        <li>Mentorship tracks from Derol Willis & Shalot Willis</li>
                     </ul>
                 </div>
-                <div class="pricing-box">
-                    <div>
-                        <div class="pricing-price">$45 <span class="pricing-period">/ session</span></div>
-                        <div class="pricing-model">Single Slot or $160/mo Track</div>
+                <div>
+                    <div class="delivery-notice">⏱️ Delivery: Calendar invite & prep guide dispatch within 2–5 minutes</div>
+                    <div class="pricing-box">
+                        <div>
+                            <div class="pricing-price">$45 <span class="pricing-period">/ session</span></div>
+                            <div class="pricing-model">Single Slot or $160/Track (USD/NGN/ZAR)</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -377,15 +440,18 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
                     <p>Cyberpunk trading dashboard and localized financial tracking environment engineered for complete asset sovereignty, risk calculation, and zero cloud data leaks.</p>
                     <ul class="feature-bullets">
                         <li>Low-latency neon HUD with volatility sparklines</li>
-                        <li>Multi-currency ledger (USD, EUR, NGN, GHS)</li>
+                        <li>Multi-currency ledger (USD, EUR, NGN, ZAR)</li>
                         <li>Risk-to-reward ratio & position calculator</li>
                         <li>100% local encrypted data retention</li>
                     </ul>
                 </div>
-                <div class="pricing-box">
-                    <div>
-                        <div class="pricing-price">$49 <span class="pricing-period">one-time</span></div>
-                        <div class="pricing-model">Lifetime Pro Digital License</div>
+                <div>
+                    <div class="delivery-notice">⏱️ Delivery: Instant download key dispatch within 2–5 minutes</div>
+                    <div class="pricing-box">
+                        <div>
+                            <div class="pricing-price">$49 <span class="pricing-period">one-time</span></div>
+                            <div class="pricing-model">Lifetime Pro Key (USD/NGN/ZAR)</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -396,29 +462,45 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
         <div class="merchant-panel" id="compliance">
             <div class="section-header">
                 <h2>Paystack Merchant & Compliance Information</h2>
-                <p>Transparent operational information meeting Paystack integration and regulatory standards.</p>
+                <p>Transparent operational information meeting Paystack commercial integration and regulatory standards.</p>
+            </div>
+
+            <!-- Official Live URL Banner -->
+            <div class="url-box">
+                <span><strong>Official Live Website URL:</strong> https://sovereign-architect-jade.vercel.app/</span>
             </div>
             
             <div class="merchant-grid">
                 <div class="merchant-item">
-                    <h4>Merchant Name</h4>
+                    <h4>Merchant Entity</h4>
                     <p><strong>Shalot's Music Academy & Software Studio</strong></p>
-                    <p style="font-size: 0.82rem; margin-top: 0.25rem;">Proprietor: Derol Willis</p>
+                    <p style="font-size: 0.82rem; margin-top: 0.25rem;">📍 Mamelodi, Pretoria, South Africa</p>
                 </div>
                 <div class="merchant-item">
-                    <h4>Customer Support Email</h4>
+                    <h4>Executive Leadership</h4>
+                    <p><strong>Derol Willis</strong> (Founder & Dev: 0796060896)</p>
+                    <p style="font-size: 0.82rem; margin-top: 0.25rem;"><strong>Shalot Willis</strong> (Director: 0637275024)</p>
+                </div>
+                <div class="merchant-item">
+                    <h4>Support Contacts</h4>
                     <p><strong><a href="mailto:willisderol@gmail.com" style="color: #38bdf8;">willisderol@gmail.com</a></strong></p>
-                    <p style="font-size: 0.82rem; margin-top: 0.25rem;">Response time: Within 24 hours</p>
+                    <p style="font-size: 0.82rem; margin-top: 0.25rem;"><a href="mailto:Pastorshalot@gmail.com" style="color: #c084fc;">Pastorshalot@gmail.com</a></p>
+                    <p style="font-size: 0.82rem; margin-top: 0.25rem; color: #fbbf24;">SLA: Guaranteed 24-hour turnaround</p>
                 </div>
                 <div class="merchant-item">
-                    <h4>Payment Processing</h4>
+                    <h4>Payment Gateway</h4>
                     <p><strong>Paystack Payments Limited</strong></p>
                     <p style="font-size: 0.82rem; margin-top: 0.25rem;">PCI-DSS Level 1 Secure Checkout</p>
                 </div>
                 <div class="merchant-item">
-                    <h4>Fulfillment & Delivery</h4>
-                    <p><strong>Instant Digital Key Dispatch</strong></p>
-                    <p style="font-size: 0.82rem; margin-top: 0.25rem;">License emailed in 2–5 minutes</p>
+                    <h4>Digital Fulfillment</h4>
+                    <p><strong>Automated License Dispatch</strong></p>
+                    <p style="font-size: 0.82rem; margin-top: 0.25rem;">Dispatched to email within 2–5 minutes</p>
+                </div>
+                <div class="merchant-item">
+                    <h4>Official Social Presence</h4>
+                    <p><a href="https://www.facebook.com/profile.php?id=61591481986905" target="_blank" rel="noreferrer" style="color: #60a5fa;">Facebook: Shalot's Music Academy</a></p>
+                    <p style="font-size: 0.82rem; margin-top: 0.25rem;">Public verification channel</p>
                 </div>
             </div>
 
@@ -431,31 +513,31 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
                 </div>
                 <div id="policy-content" class="policy-text">
                     <p><strong>Terms of Service Summary:</strong> All purchases of software licenses and studio sessions through Paystack are governed by our standard merchant agreement. Digital licenses provide non-exclusive personal/educational access. Studio bookings must be confirmed 48 hours in advance.</p>
-                    <p>For questions or assistance, contact Derol Willis at <a href="mailto:willisderol@gmail.com">willisderol@gmail.com</a>.</p>
+                    <p>For questions or assistance, contact Derol Willis at <a href="mailto:willisderol@gmail.com">willisderol@gmail.com</a> or phone 0796060896.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Shalot's Music Academy & Software Studio. Developed by Derol Willis. All rights reserved.</p>
+        <p>&copy; 2026 Shalot's Music Academy & Software Studio. Mamelodi, Pretoria, South Africa. All rights reserved.</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #64748b;">
-            Official Public Gateway for Paystack Compliance & Application Advertising.
+            Official Public Gateway: <a href="https://sovereign-architect-jade.vercel.app/" target="_blank">https://sovereign-architect-jade.vercel.app/</a> | Paystack Compliance Approved
         </p>
     </footer>
 
     <script>
         const policies = {
-            terms: '<p><strong>Terms of Service:</strong> Digital licenses confer non-transferable access to School Kids Teacher Avatar and SovereignVault V3.0 Pro. Shalot\\'s Music Academy studio sessions must be booked at least 48 hours in advance. Payment processing is safely handled via Paystack Payments.</p>',
-            privacy: '<p><strong>Privacy Policy:</strong> We collect only necessary contact information (name, email) for license delivery and booking verification. Cardholder details are processed directly by Paystack (PCI-DSS Level 1); our servers never store financial credentials. Student learning profiles in School Kids Teacher Avatar are strictly private and never monetized.</p>',
-            refund: '<p><strong>Refund & Cancellation Policy:</strong> We offer a 7-day money-back guarantee on digital software licenses if technical issues prevent activation. Music studio bookings can be rescheduled with 24 hours\\' advance notice at zero penalty. Approved refunds are processed back through Paystack within 3–7 business days.</p>',
+            terms: '<p><strong>Terms of Service:</strong> Digital licenses confer non-transferable access to Calcuboss OS6 Kids and SovereignVault V3.0 Pro. Shalot\\'s Music Academy studio sessions must be booked at least 48 hours in advance. Payment processing is safely handled via Paystack Payments. Merchant operates from Mamelodi, Pretoria, South Africa.</p>',
+            privacy: '<p><strong>Privacy Policy:</strong> We collect only necessary contact information (name, email) for license delivery and booking verification. Cardholder details are processed directly by Paystack (PCI-DSS Level 1); our servers never store financial credentials. Student learning profiles in Calcuboss OS6 Kids are strictly private and never monetized.</p>',
+            refund: '<p><strong>Refund & Cancellation Policy:</strong> We offer a 7-day money-back guarantee on digital software licenses if technical issues prevent activation. Music studio bookings in Mamelodi can be rescheduled with 24 hours\\' advance notice at zero penalty. Approved refunds are processed back through Paystack within 3–7 business days.</p>',
             delivery: '<p><strong>Digital Delivery Policy:</strong> All digital software keys, downloads, and onboarding instructions are automatically dispatched to the customer\\'s email address within 2–5 minutes of successful Paystack payment confirmation. Studio calendar invites are emailed immediately upon booking confirmation.</p>'
         };
 
         function showPolicy(type) {
             document.querySelectorAll('.policy-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            document.getElementById('policy-content').innerHTML = policies[type] + '<p style="margin-top:0.75rem;font-size:0.85rem;color:#94a3b8;">Direct inquiry: <a href="mailto:willisderol@gmail.com" style="color:#a78bfa;">willisderol@gmail.com</a></p>';
+            document.getElementById('policy-content').innerHTML = policies[type] + '<p style="margin-top:0.75rem;font-size:0.85rem;color:#94a3b8;">Direct inquiry: <a href="mailto:willisderol@gmail.com" style="color:#a78bfa;">willisderol@gmail.com</a> (Tel: 0796060896) | Director: <a href="mailto:Pastorshalot@gmail.com" style="color:#c084fc;">Pastorshalot@gmail.com</a> (Tel: 0637275024)</p>';
         }
     </script>
 </body>
