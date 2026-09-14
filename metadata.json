@@ -1,0 +1,6 @@
+{
+  "name": "Shalot's Music Academy & Software Studio",
+  "description": "Official showcase and Paystack compliance landing page for Shalot's Music Academy & Software Studio, featuring School Kids Teacher Avatar, Shalot's Music Academy 2026, and SovereignVault V3.0 Pro.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
