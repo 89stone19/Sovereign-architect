@@ -519,6 +519,51 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
         </div>
     </div>
 
+    <!-- Floating Live Help Widget (WhatsApp & Instant Keyword Desk) -->
+    <div id="live-help-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: var(--font-sans);">
+        <div id="live-help-box" style="display: none; width: 340px; max-width: 90vw; height: 480px; background: #0e111a; border: 1px solid #313a52; border-radius: 16px; box-shadow: 0 16px 36px rgba(0,0,0,0.8); flex-direction: column; overflow: hidden; margin-bottom: 12px;">
+            <div style="background: linear-gradient(135deg, #4c1d95, #1e1b4b); padding: 12px 16px; border-bottom: 1px solid #374151; display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 34px; height: 34px; border-radius: 10px; background: #8b5cf6; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; color: #fff;">SM</div>
+                    <div>
+                        <div style="font-size: 0.85rem; font-weight: bold; color: #fff;">Shalot's Live Help Desk</div>
+                        <div style="font-size: 0.72rem; color: #a5b4fc;">📍 Mamelodi • 24h SLA Active</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <a href="https://wa.me/27796060896?text=Hi%20Derol,%20I'm%20inquiring%20about%20Shalot's%20Music%20Academy%20and%20Apps" target="_blank" rel="noreferrer" style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); color: #34d399; font-size: 0.72rem; font-weight: bold; padding: 3px 8px; border-radius: 6px; text-decoration: none;">WhatsApp</a>
+                    <button onclick="toggleHelpBox()" style="background: none; border: none; color: #94a3b8; font-size: 1.1rem; cursor: pointer; padding: 2px 6px;">&times;</button>
+                </div>
+            </div>
+
+            <div style="background: #141926; padding: 6px 12px; font-size: 0.72rem; color: #fbbf24; border-bottom: 1px solid #232a3d;">
+                ⚡ Ask: <em>price, delivery, location, contact, Treebo...</em>
+            </div>
+
+            <div id="live-chat-messages" style="flex: 1; padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.82rem;">
+                <div style="background: #1c2233; color: #e2e8f0; padding: 10px 12px; border-radius: 12px; border: 1px solid #2d3852; line-height: 1.5; align-self: flex-start; max-width: 85%;">
+                    Hi there! 👋 Welcome to Shalot's Music Academy & Software Studio in Mamelodi, Pretoria. How can we assist you today?
+                </div>
+            </div>
+
+            <div style="padding: 6px 10px; background: #111420; border-top: 1px solid #232b3f; display: flex; gap: 6px; overflow-x: auto;">
+                <button onclick="sendQuickPrompt('What are your prices?')" style="background: #1c2235; border: 1px solid #2e3954; color: #cbd5e1; font-size: 0.72rem; padding: 4px 8px; border-radius: 12px; cursor: pointer; white-space: nowrap;">💰 Pricing</button>
+                <button onclick="sendQuickPrompt('How does delivery work?')" style="background: #1c2235; border: 1px solid #2e3954; color: #cbd5e1; font-size: 0.72rem; padding: 4px 8px; border-radius: 12px; cursor: pointer; white-space: nowrap;">⚡ Delivery</button>
+                <button onclick="sendQuickPrompt('Where is your studio located?')" style="background: #1c2235; border: 1px solid #2e3954; color: #cbd5e1; font-size: 0.72rem; padding: 4px 8px; border-radius: 12px; cursor: pointer; white-space: nowrap;">📍 Location</button>
+                <button onclick="sendQuickPrompt('Tell me about Treebo')" style="background: #1c2235; border: 1px solid #2e3954; color: #cbd5e1; font-size: 0.72rem; padding: 4px 8px; border-radius: 12px; cursor: pointer; white-space: nowrap;">🦎 Treebo</button>
+            </div>
+
+            <div style="padding: 10px; background: #0a0d16; border-top: 1px solid #1f273c; display: flex; gap: 8px;">
+                <input id="live-chat-input" type="text" placeholder="Type a keyword or question..." style="flex: 1; background: #141826; border: 1px solid #28324a; border-radius: 8px; padding: 8px 10px; color: #fff; font-size: 0.82rem; outline: none;" onkeydown="if(event.key==='Enter') sendLiveMessage()">
+                <button onclick="sendLiveMessage()" style="background: #8b5cf6; border: none; color: #fff; font-weight: bold; border-radius: 8px; padding: 8px 14px; font-size: 0.82rem; cursor: pointer;">Send</button>
+            </div>
+        </div>
+
+        <button id="live-help-trigger" onclick="toggleHelpBox()" style="width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, #8b5cf6, #7c3aed); border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 8px 20px rgba(139,92,246,0.4); font-size: 1.5rem; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-left: auto;">
+            💬
+        </button>
+    </div>
+
     <footer>
         <p>&copy; 2026 Shalot's Music Academy & Software Studio. Mamelodi, Pretoria, South Africa. All rights reserved.</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #64748b;">
@@ -538,6 +583,75 @@ export const STANDALONE_HTML_CONTENT = `<!DOCTYPE html>
             document.querySelectorAll('.policy-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             document.getElementById('policy-content').innerHTML = policies[type] + '<p style="margin-top:0.75rem;font-size:0.85rem;color:#94a3b8;">Direct inquiry: <a href="mailto:willisderol@gmail.com" style="color:#a78bfa;">willisderol@gmail.com</a> (Tel: 0796060896) | Director: <a href="mailto:Pastorshalot@gmail.com" style="color:#c084fc;">Pastorshalot@gmail.com</a> (Tel: 0637275024)</p>';
+        }
+
+        // Live Help Widget Logic
+        function toggleHelpBox() {
+            const box = document.getElementById('live-help-box');
+            if (box.style.display === 'none' || box.style.display === '') {
+                box.style.display = 'flex';
+                document.getElementById('live-chat-input').focus();
+            } else {
+                box.style.display = 'none';
+            }
+        }
+
+        // Auto pop after 3 seconds
+        setTimeout(() => {
+            const box = document.getElementById('live-help-box');
+            if (box && box.style.display === 'none') {
+                box.style.display = 'flex';
+            }
+        }, 3000);
+
+        function replyCatch(text) {
+            const t = text.toLowerCase();
+            if (t.includes('price') || t.includes('cost') || t.includes('how much') || t.includes('zar') || t.includes('rand')) {
+                return '💰 Transparent Pricing (USD & ZAR via Paystack):\\n• Calcuboss OS6 Kids: $14/mo (~R250)\\n• Shalot\\'s Music Academy: $45/slot (~R800)\\n• SovereignVault V3.0 Pro: $49 lifetime\\nAll cards & EFT accepted!';
+            }
+            if (t.includes('deliver') || t.includes('time') || t.includes('when') || t.includes('license')) {
+                return '⚡ Instant! License keys, downloads, and calendar invites are sent to your email in 2–5 minutes after Paystack payment.';
+            }
+            if (t.includes('location') || t.includes('where') || t.includes('mamelodi') || t.includes('pretoria')) {
+                return '📍 Physical Studio: Mamelodi, Pretoria, Gauteng, South Africa. Both in-person recording & global remote access available.';
+            }
+            if (t.includes('treebo') || t.includes('calcuboss') || t.includes('botany') || t.includes('math') || t.includes('kid')) {
+                return '🦎 Treebo teaches botany & plant biology, while Calcuboss provides rapid arithmetic drills! 100% child-safe and COPPA compliant.';
+            }
+            if (t.includes('contact') || t.includes('phone') || t.includes('whatsapp') || t.includes('call')) {
+                return '📞 Direct Contacts:\\n• Derol Willis: 0796060896 (willisderol@gmail.com)\\n• Shalot Willis: 0637275024 (Pastorshalot@gmail.com)\\nGuaranteed reply within 24 hours!';
+            }
+            return 'Thanks! Our team (Derol & Shalot) will reply within 24h. For instant WhatsApp or phone support: 0796060896 / 0637275024.';
+        }
+
+        function sendLiveMessage(overrideText) {
+            const inputEl = document.getElementById('live-chat-input');
+            const text = (overrideText || inputEl.value).trim();
+            if (!text) return;
+
+            const chatEl = document.getElementById('live-chat-messages');
+            
+            // User message
+            const userMsg = document.createElement('div');
+            userMsg.style.cssText = 'background: #8b5cf6; color: #fff; padding: 8px 12px; border-radius: 12px; align-self: flex-end; max-width: 85%; line-height: 1.4;';
+            userMsg.innerText = text;
+            chatEl.appendChild(userMsg);
+            
+            if (!overrideText) inputEl.value = '';
+            chatEl.scrollTop = chatEl.scrollHeight;
+
+            // Bot answer
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.style.cssText = 'background: #1c2233; color: #e2e8f0; padding: 10px 12px; border-radius: 12px; border: 1px solid #2d3852; align-self: flex-start; max-width: 85%; white-space: pre-line; line-height: 1.5;';
+                botMsg.innerText = replyCatch(text);
+                chatEl.appendChild(botMsg);
+                chatEl.scrollTop = chatEl.scrollHeight;
+            }, 350);
+        }
+
+        function sendQuickPrompt(prompt) {
+            sendLiveMessage(prompt);
         }
     </script>
 </body>

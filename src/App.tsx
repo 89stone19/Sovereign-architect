@@ -9,6 +9,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ExportModal } from './components/ExportModal';
 import { AppDetailModal } from './components/AppDetailModal';
+import { LiveHelpWidget } from './components/LiveHelpWidget';
 
 export default function App() {
   const [isExporterOpen, setIsExporterOpen] = useState(false);
@@ -41,6 +42,9 @@ export default function App() {
         app={selectedApp}
         onClose={() => setSelectedApp(null)}
       />
+
+      {/* Instant Live Help Widget (WhatsApp & Keyword Answering Desk) */}
+      <LiveHelpWidget />
     </div>
   );
 }
